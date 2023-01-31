@@ -28,12 +28,7 @@ public class Main {
 
 			System.out.print("inserisci il titolo del libro: ");
 
-			try {
-				titolo = s.nextLine().toLowerCase().trim();
-
-			} catch (Exception e) {
-				System.out.println("Titolo non validato. inserire nuovamente");
-			}
+			titolo = s.nextLine().toLowerCase().trim();
 
 			System.out.print("inserisci il numero di pagine del libro: ");
 			try {
@@ -41,35 +36,29 @@ public class Main {
 				nPagine = Integer.parseInt(s.nextLine());
 
 			} catch (Exception e) {
-				System.out.println("Il formato del numero non è valido: ");
 
+				nPagine = 0;
 			}
 
 			System.out.print("inserisci l'autore del libro: ");
-			try {
-				autore = s.nextLine();
-			} catch (Exception e) {
-				System.out.println("Autore non validato. inserire nuovamente");
-			}
+
+			autore = s.nextLine();
 
 			System.out.print("inserisci l'editore del libro: ");
 
-			try {
-				editore = s.nextLine();
+			editore = s.nextLine();
 
+			Book libro;
+			try {
+
+				libro = new Book(titolo, nPagine, autore, editore);
+				catalogoLibri[i] = libro;
 			} catch (Exception e) {
-				System.out.println("editore non validato. inserire nuovamente");
+				// TODO Auto-generated catch block
+				e.getMessage();
 			}
 
-			Book libro = new Book(titolo, nPagine, autore, editore);
-
-			catalogoLibri[i] = libro;
-			libro.validateTitolo(titolo);
-			libro.validatePage(n);
-			libro.validateAutore(autore);
-			libro.validateEditore(editore);
-
-			System.out.println("Inserito il libro: " + libro.toString());
+			System.out.println("Inserito il libro: " + catalogoLibri[i].toString());
 		}
 
 		s.close();

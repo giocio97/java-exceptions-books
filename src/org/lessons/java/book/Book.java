@@ -21,13 +21,13 @@ public class Book {
 	}
 
 	public void validatePage(int n) throws PageException {
-		if (n < 0)
+		if (n <= 0)
 			throw new PageException();
 	}
 
 	public void validateTitolo(String titolo) throws Exception {
 		if (titolo.length() <= 0) {
-			throw new Exception();
+			throw new Exception("titolo vuoto. iserire titolo valido");
 
 		}
 	}
