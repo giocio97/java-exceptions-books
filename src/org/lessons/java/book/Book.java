@@ -7,12 +7,43 @@ public class Book {
 	public String autore;
 	public String editore;
 
-	public Book(String titolo, int nPagine, String autore, String editore) {
+	public Book(String titolo, int nPagine, String autore, String editore) throws Exception {
 		super();
 		this.titolo = titolo;
+		validateTitolo(titolo);
 		this.nPagine = nPagine;
+		validatePage(nPagine);
 		this.autore = autore;
+		validateAutore(autore);
 		this.editore = editore;
+		validateEditore(editore);
+
+	}
+
+	public void validatePage(int n) throws PageException {
+		if (n < 0)
+			throw new PageException();
+	}
+
+	public void validateTitolo(String titolo) throws Exception {
+		if (titolo.length() <= 0) {
+			throw new Exception();
+
+		}
+	}
+
+	public void validateAutore(String autore) throws Exception {
+		if (autore.length() <= 0) {
+			throw new Exception();
+
+		}
+	}
+
+	public void validateEditore(String editore) throws Exception {
+		if (editore.length() <= 0) {
+			throw new Exception();
+
+		}
 	}
 
 	public String getTitolo() {

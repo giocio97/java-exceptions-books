@@ -4,9 +4,9 @@ public class PageException extends Exception {
 
 	private int page;
 
-	public PageException(int page) {
+	public PageException() {
+		// TODO Auto-generated constructor stub
 		super("numero di pagine non valido!");
-		this.page = page;
 	}
 
 	public int getPage() {
